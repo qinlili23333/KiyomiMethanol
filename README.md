@@ -1,0 +1,2 @@
+# KiyomiMethanol
+本仓库中的文件用于驱动小轻Kiyomi内的Methanol热扩展模块
