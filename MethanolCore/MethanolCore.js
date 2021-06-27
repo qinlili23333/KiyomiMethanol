@@ -48,10 +48,10 @@ console.log("Listener Added!");
 document.getElementById("blankDiv").style.marginTop = (document.getElementById("floatTop").clientHeight - 10) + "px"
 drawList();
 console.log("List Loaded!");
-if(searchParams.get("addurl")){
+if (searchParams.get("addurl")) {
     document.getElementById("addPop").style.display = "block";
     document.getElementById("link").focus();
-    document.getElementById("link").value=searchParams.get("addurl");
+    document.getElementById("link").value = searchParams.get("addurl");
     addLink();
 }
 console.log("Param Processed!!");
@@ -112,7 +112,9 @@ var LocalList = {
         var r = confirm("你正在删除这个热扩展:\n名称:" + jsonTextList.name + "\n描述:" + jsonTextList.info);
         if (r == true) {
             alert("删除成功!")
-
+            if (num == 0) {
+                storage.removeItem("list0")
+            }
             for (num = num; storage.getItem("list" + (num + 1)); num++) {
                 storage.setItem("list" + num, storage.getItem("list" + (num + 1)));
                 storage.removeItem("list" + (num + 1))
