@@ -55,7 +55,13 @@ if(searchParams.get("addurl")){
     addLink();
 }
 console.log("Param Processed!!");
-
+PullToRefresh.init({
+  mainElement: '#listModule', 
+  onRefresh: function(){
+  drawList();
+  }
+});
+console.log("PullToRefresh Initialized!");
 
 
 
@@ -112,7 +118,7 @@ var LocalList = {
         var r = confirm("你正在删除这个热扩展:\n名称:" + jsonTextList.name + "\n描述:" + jsonTextList.info);
         if (r == true) {
             alert("删除成功!")
-
+if(num==0){storage.removeItem("list0")}
             for (num = num; storage.getItem("list" + (num + 1)); num++) {
                 storage.setItem("list" + num, storage.getItem("list" + (num + 1)));
                 storage.removeItem("list" + (num + 1))
