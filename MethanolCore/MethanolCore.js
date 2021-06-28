@@ -119,6 +119,7 @@ var LocalList = {
         if (r == true) {
             alert("删除成功!")
 if(num==0){storage.removeItem("list0")}
+if(!storage.getItem("list" + (num + 1))){storage.removeItem("list" + num)}
             for (num = num; storage.getItem("list" + (num + 1)); num++) {
                 storage.setItem("list" + num, storage.getItem("list" + (num + 1)));
                 storage.removeItem("list" + (num + 1))
